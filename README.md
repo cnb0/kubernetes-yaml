@@ -1,6 +1,6 @@
 # kubernetes-yaml
 
-# Deployment  
+### Deployment  
 kubectl run nginx --image=nginx
-# Service
+### Service
 kubectl expose nginx --port=80 --target-port=8000
