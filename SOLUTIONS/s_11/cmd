@@ -1,0 +1,4 @@
+Label:
+kubectl describe nodes
+kubectl get nodes --show-labels
+kubectl label node 10.1.131.42 status=vip
