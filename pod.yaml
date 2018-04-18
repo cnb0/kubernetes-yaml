@@ -12,3 +12,5 @@ spec:
     image: redis
   - name: myapp3
     image: redis
+  nodeSelector:
+    app: test88

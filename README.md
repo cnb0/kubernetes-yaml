@@ -24,4 +24,7 @@ ETCDCTL_API=3 etcdctl \
   --cert=/etc/etcd/ssl/etcd.pem \  
   --key=/etc/etcd/ssl/etcd-key.pem \  
   snapshot save snapshotdb  
-ETCDCTL_API=3 etcdctl --write-out=table snapshot status snapshotdb  
+ETCDCTL_API=3 etcdctl --write-out=table snapshot status snapshotdb
+### kubelet
+  --pod-manifest-path=/etc/kubernetes/manifests \  
+  ExecStartPost=/usr/bin/touch /test.txt  
