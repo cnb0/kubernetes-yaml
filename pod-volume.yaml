@@ -11,9 +11,14 @@ spec:
       name: test-volume
     - mountPath: /test
       name: cache-volume
+    - mountPath: /testpvc
+      name: testpvc
   volumes:
   - name: test-volume
     hostPath:
       path: /data
   - name: cache-volume
     emptyDir: {}
+  - name: testpvc
+    persistentVolumeClaim:
+      claimName: pvc-one
