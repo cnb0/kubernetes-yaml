@@ -35,7 +35,8 @@ kubectl get csr
 kubectl certificate approve csr-2b308  
 kubectl get nodes  
 ### API
-kubectl config view/kubectl cluster-info  
+kubectl config view  
+kubectl cluster-info  
 curl --cert ./admin.pem --key ./admin-key.pem  --cacert ./ca.pem https://10.1.131.41:6443/  
 ### CongfigMap
 kubectl create -f test-cfg.yaml
@@ -46,3 +47,18 @@ kubectl get configmap test-config -o yaml
 ### Proxy
 kubectl proxy --address='0.0.0.0' --port=8001 --accept-hosts='^\*$'  
 curl http://127.0.0.1:8001/api  
+### Kubectl
+kubectl config get-contexts  
+kubectl config set-context kubernetes \  
+  --cluster=kubernetes \  
+  --user=admin  
+kubectl config use-context kubernetes  
+### Secret
+echo -n "admin" | base64  
+echo "YWRtaW4=" | base64 --decode  
+### ServiceAccount (ca.crt+namespace+token)
+spec:  
+  serviceAccountName: build-robot  
+### Log
+journalctl -xe -u kubelet  
+find / -name "\*apiserver\*log"  

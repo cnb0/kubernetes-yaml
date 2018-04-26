@@ -5,6 +5,10 @@ metadata:
   namespace: default
   labels:
     app: myapp
+  annotations: {
+    "key1" : "value1",
+    "key2" : "value2"
+  }
 spec:
   containers:
   - name: myapp1
